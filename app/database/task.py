@@ -30,25 +30,24 @@ def select_by_id(task_id):
         if results:
             return output_formatter(results)[0]
             return {}
+def insert(task_data):
+    task_tuple = (
+        task_data.get("name"),
+        task_data.get("summary"),
+        task_data.get("description")
+    )
+    statement = """
+    INSERT INTO task (
+    name,
+    summary,
+    description
+    ) VALUES (
+    ?,?,?) 
+    """
 
- def insert(task_data):
-                task_tuple = (
-                    task_data.get("name"),
-                    task_data.get("summary"),
-                    task_data.get("description")
-                )
-                statement = """
-                INSERT INTO task (
-                name,
-                summary,
-                description
-                ) VALUES (
-                ?,?,?) 
-                """
-
-                conn = get_db ()
-                conn.execute(statement, task_tuple)
-                conn.commit()
+    conn = get_db ()
+    conn.execute(statement, task_tuple)
+    conn.commit()
 
 def update_by_id(task_data, task_id):
     task_tuple = (

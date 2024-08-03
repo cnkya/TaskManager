@@ -10,28 +10,30 @@ app = Flask(__name__)
 #HTTP GET METHOD
 @app.get("/tasks")
 def get_all_tasks():
-    task_list = task.scan();
+    task_list = task.scan()
     out = {
         "tasks" : tasks_list,
         "ok":True
     }
-    return out;
+    return out
    
 
-@app.get("/tasks/<int:pk>/")# pk stands for pparameter key#
+@app.get("/tasks/<int:pk>/")# pk stands for parameter key#
 def get_single_task(pk):
     single_task = task.select_by_id(pk)
     if single_task:
         out = {
             "tasks":single_task,
             "ok":True
-        }return out;
+        }
+    return out
 
     out = {
      "ok":False,
     "message":"Not Found"
 
-        }return out, 404
+    }
+    return out, 404
 
 #HTTP POST METHODS
 @app.post("/tasks")

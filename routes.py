@@ -10,7 +10,7 @@ app = Flask(__name__)
 #HTTP GET METHOD
 @app.get("/tasks")
 def get_all_tasks():
-    task_list = task.scan()
+    tasks_list = task.scan()
     out = {
         "tasks" : tasks_list,
         "ok":True

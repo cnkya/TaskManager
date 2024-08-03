@@ -13,17 +13,17 @@ INSERT INTO task(
     summary,
     description
     
-)VALUES(
+) VALUES(
     "Wash car",
     "The car needs to be washed",
     "Make sure the car gets waxed after it is washed"
     
-),(
+), (
     "Walk the dog",
     "Rocky needs their exercise",
-    "Make sre to do at least 2 laps around the park"
+    "Make sure to do at least 2 laps around the park"
     
-),(
+), (
     "Buy Groceries",
     "Go to the supermarket and buy groceries",
     "We need: Eggs, Milk, Cereal, and Coffee"

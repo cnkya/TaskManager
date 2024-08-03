@@ -20,16 +20,17 @@ def scan():
     cursor = conn.execute("SELECT * FROM task", ())
     results = cursor.fetchall()
     cursor.close()
-    return output_fomatter(results)
+    return output_formatter(results)
 
 def select_by_id(task_id):
-        conn = get_db()
-        cursor = conn.execute("SELECT * FROM task WHERE id=?", (task_id))
-        results = cursor.fetchall()
-        cursor.close()
-        if results:
-            return output_formatter(results)[0]
-            return {}
+    conn = get_db()
+    cursor = conn.execute("SELECT * FROM task WHERE id=?", (task_id))
+    results = cursor.fetchall()
+    cursor.close()
+    if results:
+        return output_formatter(results)[0]
+        return {}
+
 def insert(task_data):
     task_tuple = (
         task_data.get("name"),
